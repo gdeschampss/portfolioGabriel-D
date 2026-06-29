@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-deep-black: #000000;
+  --color-neon-purple: #ffffff;
+  --color-electric-blue: #a3a3a3;
+  --color-neon-pink: #737373;
+  --color-soft-gray: #a3a3a3;
+  --color-dark-card: rgba(10, 10, 10, 0.9);
+  --color-border-glow: rgba(255, 255, 255, 0.1);
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+  
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 8s ease-in-out infinite;
+  --animate-grid-move: gridMove 25s linear infinite;
+  --animate-scanline: scanline 8s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.05)); }
+    50% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.15)); }
+  }
+  @keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+  }
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar (Wireframe Theme) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border: 1px solid #404040;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+
+/* Wireframe Cards */
+.glass-card {
+  background: rgba(8, 8, 8, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+/* Corner plus markers for CAD layout look */
+.wireframe-box::before,
+.wireframe-box::after,
+.glass-card::before,
+.glass-card::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 10;
+}
+
+.wireframe-box::before,
+.glass-card::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+.wireframe-box::after,
+.glass-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(12, 12, 12, 0.95);
+  transform: translateY(-2px);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.neon-glow-blue {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 30%, #a3a3a3 70%, #404040 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-purple-blue {
+  background: linear-gradient(135deg, #ffffff 0%, #737373 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Grid Background Patterns */
+.grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.grid-mask {
+  mask-image: radial-gradient(ellipse at 50% 50%, black 25%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 25%, transparent 75%);
+}
+
+.dot-pattern {
+  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* CRT Screen Scanline Overlay */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 97%,
+    rgba(255, 255, 255, 0.015) 97%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
