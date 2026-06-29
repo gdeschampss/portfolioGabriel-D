@@ -54,8 +54,8 @@ export default function About() {
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
 
               <Image
-                src="/Wireframe/download (21).jfif"
-                alt="Digital Wireframe Hand and Sphere"
+                src="/Wireframe/pixel deep futuristic design ai aesthetic.jpg"
+                alt="Digital Wireframe Futuristic AI Art"
                 fill
                 sizes="(max-w-768px) 100vw, 400px"
                 className="object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-125"
