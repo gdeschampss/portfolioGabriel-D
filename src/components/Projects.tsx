@@ -43,19 +43,7 @@ const featuredProjects = [
     repoName: "Artefact.pageINC",
     image: "/Wireframe/AgentedeIA.png",
   },
-  {
-    title: "NeuroFlow Portal & Forms",
-    category: "Inteligência Artificial & Saúde",
-    problem:
-      "Necessidade de digitalizar de forma segura e responsiva o processo de triagem e captação de dados de pacientes.",
-    solution:
-      "Desenvolvimento de formulários dinâmicos de triagem em React e implementação de pipelines seguros de envio de dados para processamento.",
-    technologies: ["React", "JavaScript", "HTML/CSS", "API Integration", "Node.js"],
-    result:
-      "Otimização do tempo de pré-atendimento e centralização segura do fluxo de informações cadastrais.",
-    link: "https://github.com/gdeschampss/react_neuroflow",
-    repoName: "react_neuroflow",
-  },
+
   {
     title: "Predictive Business Analytics",
     category: "Análise de Dados & Machine Learning",
