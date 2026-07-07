@@ -16,6 +16,34 @@ interface GithubRepo {
 
 const featuredProjects = [
   {
+    title: "TradeCheck System",
+    category: "Inteligência Artificial & Comércio Exterior",
+    problem:
+      "Morosidade e risco de erros humanos na validação crítica de documentos de carga internacional, como Sales Invoice e Packing List.",
+    solution:
+      "Desenvolvimento de sistema inteligente integrado com LLMs e prompts especializados para análise crítica de dados e relatórios automáticos de conformidade.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "API Integration", "OpenAI / LLMs"],
+    result:
+      "Aceleração do desembaraço aduaneiro com alta precisão e validação automática de dados fiscais.",
+    link: "https://github.com/gdeschampss/TradeCheck_System",
+    repoName: "TradeCheck_System",
+    video: "/Wireframe/TradeChekVídeo.mp4",
+  },
+  {
+    title: "Agente de IA & Automação de Vendas n8n",
+    category: "Automação de Processos & IA",
+    problem:
+      "Dificuldade na triagem imediata de leads e sobrecarga comercial com atendimentos repetitivos e qualificação demorada.",
+    solution:
+      "Construção de fluxos de automação no n8n acoplados a agentes autônomos de IA que qualificam e realizam a conversão e fechamento de leads.",
+    technologies: ["n8n", "OpenAI / LLMs", "Integrations", "Webhooks", "CRM API"],
+    result:
+      "Atendimento instantâneo de leads 24/7 com qualificação e sincronização automática em tempo real.",
+    link: "https://github.com/gdeschampss/Artefact.pageINC",
+    repoName: "Artefact.pageINC",
+    image: "/Wireframe/AgentedeIA.png",
+  },
+  {
     title: "NeuroFlow Portal & Forms",
     category: "Inteligência Artificial & Saúde",
     problem:
@@ -27,19 +55,6 @@ const featuredProjects = [
       "Otimização do tempo de pré-atendimento e centralização segura do fluxo de informações cadastrais.",
     link: "https://github.com/gdeschampss/react_neuroflow",
     repoName: "react_neuroflow",
-  },
-  {
-    title: "Artefact Automation Engine",
-    category: "Automação de Processos & Bots",
-    problem:
-      "Alto volume de tarefas manuais repetitivas na triagem de leads e na sincronização de dados entre múltiplos sistemas.",
-    solution:
-      "Criação de plataforma web institucional integrada a fluxos de automação no n8n conectando CRMs, Slack e gateways de pagamento externos.",
-    technologies: ["Next.js", "Tailwind CSS", "n8n", "Python", "API Webhooks"],
-    result:
-      "Padronização do processamento de dados e eliminação de esforço manual em tarefas repetitivas.",
-    link: "https://github.com/gdeschampss/Artefact.pageINC",
-    repoName: "Artefact.pageINC",
   },
   {
     title: "Predictive Business Analytics",
@@ -184,16 +199,30 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Cover visual representation (Wireframe Hand Image integrated) */}
+              {/* Cover visual representation (Conditional Video or Image showcase) */}
               <div className="lg:col-span-4 relative border-t lg:border-t-0 lg:border-l border-white/5 overflow-hidden flex flex-col items-center justify-center text-center group min-h-[250px]">
-                <Image
-                  src="/Wireframe/Handmodeling#.jfif"
-                  alt="3D Wireframe Hand Modeling"
-                  fill
-                  sizes="(max-w-768px) 100vw, 250px"
-                  className="object-cover opacity-15 group-hover:opacity-30 transition-opacity duration-500 filter grayscale"
-                />
+                {project.video ? (
+                  <video
+                    src={project.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-50 transition-opacity duration-500"
+                  />
+                ) : (
+                  <Image
+                    src={project.image || "/Wireframe/Handmodeling#.jfif"}
+                    alt={project.title}
+                    fill
+                    sizes="(max-w-768px) 100vw, 250px"
+                    className="object-cover opacity-15 group-hover:opacity-30 transition-opacity duration-500 filter grayscale"
+                  />
+                )}
                 
+                {/* Dark overlay to guarantee contrast for the GitHub repo CTA */}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-0" />
+
                 <div className="relative z-10 p-8 flex flex-col items-center justify-center">
                   <FolderGit className="h-10 w-10 text-white/30 group-hover:text-white/60 transition-colors duration-300 mb-4" />
                   
